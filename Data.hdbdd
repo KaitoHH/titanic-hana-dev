@@ -1,0 +1,77 @@
+namespace titanic;
+
+@Schema: 'TITANIC'
+Context Data {
+	Entity train {
+	    key Id  : Integer not null;
+	    Survived: Integer;
+	    Pclass  : Integer;
+	    Name    : String(100);
+	    Sex     : Integer;
+	    Age     : BinaryFloat;
+	    SibSp   : Integer;
+	    Parch   : Integer;
+	    Ticket  : String(30);
+	    Fare    : BinaryFloat;
+	    Cabin   : String(20);
+	    Embarked: String(1);
+	};
+	
+	Entity test {
+    	key Id  : Integer not null;
+	    Pclass  : Integer;
+	    Name    : String(100);
+	    Sex     : Integer;
+	    Age     : BinaryFloat;
+	    SibSp   : Integer;
+	    Parch   : Integer;
+	    Ticket  : String(30);
+	    Fare    : BinaryFloat;
+	    Cabin   : String(20);
+	    Embarked: String(1);
+    };
+	
+	View train_view as select from train  {
+	    Pclass 		as PCLASS,
+	    Sex 		as SEX,
+	    Age 		as AGE,
+	    SibSp 		as SIBSP,
+	    Parch 		as PARCH,
+	    //Ticket 		as TICKET,
+	    Fare 		as FARE,
+	    Cabin 		as CABIN,
+	    Embarked 	as EMBARKED,
+	    Survived 	as SURVIVED
+	} /*WHERE Id<=700*/;
+	
+ 	View test_view as select from train {
+ 		Id			as ID,
+	    Pclass 		as PCLASS,
+	    Sex 		as SEX,
+	    Age 		as AGE,
+	    SibSp 		as SIBSP,
+	    Parch 		as PARCH,
+	    //Ticket 		as TICKET,
+	    Fare 		as FARE,
+	    Cabin 		as CABIN,
+	    Embarked 	as EMBARKED
+	} WHERE Id > 700;
+	
+	View test_result_view as select from train{
+		Id			as ID,
+		Survived	as SURVIVED
+	} WHERE Id > 700;
+    
+    View real_test_view as select from test{
+ 		Id			as ID,
+	    Pclass 		as PCLASS,
+	    Sex 		as SEX,
+	    Age 		as AGE,
+	    SibSp 		as SIBSP,
+	    Parch 		as PARCH,
+	    //Ticket 		as TICKET,
+	    Fare 		as FARE,
+	    Cabin 		as CABIN,
+	    Embarked 	as EMBARKED    
+    };
+};

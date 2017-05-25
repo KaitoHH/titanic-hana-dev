@@ -1,0 +1,16 @@
+import = [
+    {
+        table = "titanic::Data.train";
+        schema = "TITANIC";
+        file = "titanic.csv:train.csv";
+        header = false;
+        delimEnclosing="\"";
+    },
+    {
+        table = "titanic::Data.test";
+        schema = "TITANIC";
+        file = "titanic.csv:test.csv";
+        header = false;
+        delimEnclosing="\"";
+    } 
+];
