@@ -11,6 +11,7 @@ function process() {
 		if ($.titanic.lib.util.parameterExist(modelName)) {
 			var result = createModel(modelName, 0);
 			var model_id = result['OUT_MODEL_ID'];
+			connection.commit();
 			$.response.status = $.net.http.CREATED;
 			return {
 				"model_id" : model_id,

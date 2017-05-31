@@ -1,0 +1,4 @@
+service  { 
+	"TITANIC"."Model.Info";
+	"TITANIC"."Model.Param" key generate local "GenID";
+}
