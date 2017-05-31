@@ -1,3 +1,7 @@
+function serviceInit() {
+	$.import("titanic/lib/util","util");
+}
+
 function process() {
 	if ($.titanic.lib.util.validateMethod()) {
 		var connection = $.hdb.getConnection();
@@ -9,7 +13,7 @@ function process() {
 			var model_id = result['OUT_MODEL_ID'];
 			$.response.status = $.net.http.CREATED;
 			return {
-				"model_id:" : model_id,
+				"model_id" : model_id,
 				"result" : "SUCEESS"
 			};
 		} else {
@@ -24,5 +28,9 @@ function process() {
 	}
 }
 
-$.import("titanic/lib/util","util");
-$.response.setBody(JSON.stringify(process()));
+function main() {
+	serviceInit();
+	$.response.setBody(JSON.stringify(process()));
+}
+
+main();
