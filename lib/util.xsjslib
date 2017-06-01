@@ -6,3 +6,7 @@ function validateMethod() {
 function parameterExist(param) {
 	return param != null && param.length > 0;
 }
+
+function generalizeParam(param) {
+	return parameterExist(param) ? param : null;
+}
