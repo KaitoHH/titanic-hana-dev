@@ -10,7 +10,9 @@
    "GET",
    "POST",
    "HEAD",
-   "OPTIONS"
+   "OPTIONS",
+   "DELETE",
+   "PUT"
    ],
    "allowOrigin": ["*"],
    "maxAge": "3600"
