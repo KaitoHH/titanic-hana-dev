@@ -16,7 +16,14 @@ function process() {
 		var stringArgs = $.request.parameters.get("stringArgs");
 		if ($.titanic.lib.util.parameterExist(model_id)
 				&& $.titanic.lib.util.parameterExist(paramName)) {
-			addParameter(model_id, paramName, g(intArgs), g(doubleArgs), g(stringArgs));
+			try {
+				addParameter(model_id, paramName, g(intArgs), g(doubleArgs),
+						g(stringArgs));
+			} catch (e) {
+				return {
+					"result": e.toString()
+				}
+			}
 			connection.commit();
 			$.response.status = $.net.http.CREATED;
 			return {
