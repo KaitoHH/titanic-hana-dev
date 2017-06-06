@@ -13,7 +13,7 @@ function process() {
 		if ($.titanic.lib.util.parameterExist(model_id)
 				&& $.titanic.lib.util.parameterExist(tableName)) {
 			try {
-				testModel(tableName, model_id, null);
+				var result = testModel(tableName, model_id, null);
 			} catch (e) {
 				return {
 					"result" : e.toString()
@@ -22,7 +22,7 @@ function process() {
 			connection.commit();
 			$.response.status = $.net.http.CREATED;
 			return {
-				"result" : "SUCEESS"
+				"result" : result
 			};
 		} else {
 			$.response.status = $.net.http.OK;
