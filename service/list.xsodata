@@ -1,8 +1,7 @@
 service  { 
 	"TITANIC"."Model.Info"
 		create using "titanic.lib:create.xsjslib::createModel";
-	"TITANIC"."Model.Param" key generate local "GenID"
-		create using "titanic.lib:create.xsjslib::addParam";
+	"TITANIC"."Model.Param" key generate local "GenID";
 	"TITANIC"."titanic::Data.train_view" as "trainData"
 		key generate local "GenID"
 		create forbidden
