@@ -2,6 +2,10 @@ service  {
 	"TITANIC"."Model.Info"
 		create using "titanic.lib:create.xsjslib::createModel";
 	"TITANIC"."Model.Param" key generate local "GenID";
+	"TITANIC"."Model.Model"
+		create forbidden
+		update forbidden
+		delete forbidden;	
 	"TITANIC"."titanic::Data.train_view" as "trainData"
 		key generate local "GenID"
 		create forbidden
@@ -9,6 +13,14 @@ service  {
 		delete forbidden;
 	"TITANIC"."titanic::Data.real_test_view" as "testData"
 		key generate local "GenID"
+		create forbidden
+		update forbidden
+		delete forbidden;
+	"TITANIC"."titanic::Data.train" as "trainTable"
+		create forbidden
+		update forbidden
+		delete forbidden;
+	"TITANIC"."titanic::Data.test" as "testTable"
 		create forbidden
 		update forbidden
 		delete forbidden;
